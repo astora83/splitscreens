@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
 	private Rigidbody playerRigidbody;
 	private int floorMask;
 	private float camRayLength = 100f;
+	[SerializeField]
+	int playerIndex = 1;
 
 	void Awake()
 	{
@@ -19,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		float h = Input.GetAxisRaw("Horizontal");
+		float h = Input.GetAxisRaw("Horizontal" + playerIndex);
 		float v = Input.GetAxisRaw("Vertical");
 
 		Move(h, v);
